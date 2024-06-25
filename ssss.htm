@@ -1,0 +1,18 @@
+<script id="T_ADD_MORE" type="text/x-jsrender">
+    <div class="actions" style="display:flex;margin-right:-14px;">
+        <div id="streamScanButton"></div>
+        <div class="toolbar" style="margin-right:5px;padding-left:1px;">
+            {^{action func='.OPEN_FILES' class='openFiles' title='Управление файлами' rights='true'/}}
+        </div>
+        <div class="toolbar" style="margin-left:0px;margin-right:-14px;padding-left:1px;">
+            {^{if CanAdd}}
+            {^{action func='.ADD_FILE' class='Toolbar-Add' title='Добавить файл' rights='CanAdd'/}}
+            {{else}}
+            {^{action func='.ADD_FILE' class='Toolbar-Add-disabled' title='Добавить файл' rights='CanAdd'/}}
+            {{/if}}
+        </div>
+        <div class="toolbar">
+            <div style="float:right;margin-left:1px;position:absolute;" class="toolbarAdd" data-menu="ActionAddMore" data-menu-style="styleForPreviewMenu"></div>
+        </div>
+    </div>
+</script>

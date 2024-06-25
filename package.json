@@ -1,0 +1,70 @@
+{
+    "name": "jsrender-jsviews",
+    "description": "Simple JSViews JSRender syntax highlighter, that makes your templates more readable and colorful",
+    "version": "0.0.2",
+    "publisher": "AndreyMakarenko",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Sotnik666/JSViews-JSRender-syntax-highlighter"
+    },
+    "engines": {
+        "vscode": "^1.33.0"
+    },
+    "activationEvents": [
+        "*"
+    ],
+    "main": "./client/out/extension",
+    "contributes": {
+        "grammars": [
+            {
+                "path": "./syntaxes/injection.json",
+                "scopeName": "jsviews.injection",
+                "injectTo": [
+                    "text.html.derivative"
+                ]
+            }
+        ],
+        "configuration": {
+            "type": "object",
+            "title": "Example configuration",
+            "properties": {
+                "languageServerExample.maxNumberOfProblems": {
+                    "scope": "resource",
+                    "type": "number",
+                    "default": 100,
+                    "description": "Controls the maximum number of problems produced by the server."
+                },
+                "languageServerExample.trace.server": {
+                    "scope": "window",
+                    "type": "string",
+                    "enum": [
+                        "off",
+                        "messages",
+                        "verbose"
+                    ],
+                    "default": "off",
+                    "description": "Traces the communication between VS Code and the language server."
+                }
+            }
+        }
+    },
+    "scripts": {
+        "vscode:prepublish": "cd client && npm run update-vscode && cd .. && npm run compile",
+        "compile": "tsc -b",
+        "watch": "tsc -b -w",
+        "postinstall": "cd client && npm install && cd ../server && npm install && cd ..",
+        "test": "npm run compile && node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "@types/lodash": "^4.17.5",
+        "@types/mocha": "^10.0.7",
+        "@types/node": "^20.14.8",
+        "eslint": "^9.5.0",
+        "typescript": "^5.5.2",
+        "vscode": "^1.1.37"
+    },
+    "dependencies": {
+
+    }
+}

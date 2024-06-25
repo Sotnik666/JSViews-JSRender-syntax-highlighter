@@ -1,0 +1,403 @@
+{
+    "scopeName": "jsviews.injection",
+    "injectionSelector": "L:text.html.derivative",
+    "patterns": [
+        {
+            "include": "#jsviews-eval"
+        },
+        {
+            "include": "#jsviews-comment"
+        },
+        {
+            "include": "#jsviews-include"
+        },
+        {
+            "include": "#jsviews-props"
+        },
+        {
+            "include": "#jsviews-props-end"
+        },
+        {
+            "include": "#jsviews-radiogroup"
+        },
+        {
+            "include": "#jsviews-radiogroup-end"
+        },
+        {
+            "include": "#jsviews-on"
+        },
+        {
+            "include": "#jsviews-expression"
+        },
+        {
+            "include": "#jsviews-action"
+        },
+        {
+            "include": "#jsviews-customLabel" 
+        },
+        {
+            "include": "#jsviews-customLabel-end" 
+        },
+        {
+            "include": "#jsviews-label"
+        },
+        {
+            "include": "#jsviews-if"
+        },
+        {
+            "include": "#jsviews-if-end"
+        },
+        {
+            "include": "#jsviews-else"
+        },
+        {
+            "include": "#jsviews-for"
+        },
+        {
+            "include": "#jsviews-model"
+        },
+        {
+            "include": "#jsviews-model-end"
+        },
+        {
+            "include": "#jsviews-script"
+        }
+    ],
+    "repository": {
+        "jsviews-eval": {
+            "name": "jsviews.if",
+            "match": "(\\{\\{\\*.*[ ])(.*?)(\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.if.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-comment": {
+            "name": "jsviews.comment",
+            "match": "(\\{\\{\\!--)(.*)(--\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "comment.line.double-slash"
+                },
+                "3": {
+                    "name": "keyword.jsviews.left"
+                }
+            }
+        },
+        "jsviews-include": {
+            "name": "jsviews.include",
+            "match": "(\\{\\^?\\{include tmpl=\")(.*)(\"[ ]\\/\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "string.quoted.double"
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-props": {
+            "name": "keyword.jsviews.props",
+            "match": "(\\{\\^\\{props[ ])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.for.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-props-end": {
+            "name": "keyword.jsviews.props.end",
+            "match": "\\{\\^?\\{\\/props\\}\\}"
+        },
+        "jsviews-radiogroup": {
+            "name": "keyword.jsviews.radiogroup",
+            "match": "(\\{\\^\\{radiogroup[ ])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.for.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-radiogroup-end": {
+            "name": "keyword.jsviews.radiogroup.end",
+            "match": "\\{\\^?\\{\\/radiogroup\\}\\}"
+        },
+        "jsviews-on": {
+            "name": "jsviews.on",
+            "match": "(\\{\\^\\{on)(.*?)(\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-expression": {
+            "name": "jsviews.expression",
+            "match": "(\\{\\^?\\{[:|>])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-action": {
+            "name": "jsviews.action",
+            "match": "(\\{\\^?\\{action )(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": { 
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-customLabel": {
+            "name": "jsviews.customLabel",
+            "match": "(\\{.?\\{)(\\S*\\s)(.*)(}})",
+            "captures": {
+                "1": { 
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "keyword.jsviews.left"
+                },
+                "3": {
+                    "name": "jsviews.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "4": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-customLabel-end": {
+            "name": "keyword.jsviews.if.end",
+            "match": "\\{\\{\\/model\\}\\}"
+        },
+        "jsviews-label": {
+            "name": "jsviews.label",
+            "match": "(\\{\\^?\\{label[ ])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": { 
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-if": {
+            "name": "jsviews.if",
+            "match": "(\\{\\^?\\{if[ ])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.if.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-else": {
+            "name": "jsviews.else",
+            "match": "(\\{\\{else[ ]?)(.*?)(\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.else.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-if-end": {
+            "name": "keyword.jsviews.if.end",
+            "match": "\\{\\{\\/if\\}\\}"
+        },
+        "jsviews-model": {
+            "name": "jsviews.if",
+            "match": "(\\{\\^?\\{model[ ])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.if.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-model-end": {
+            "name": "keyword.jsviews.if.end",
+            "match": "\\{\\{\\/model\\}\\}"
+        },
+        "jsviews-for": {
+            "name": "keyword.jsviews.for",
+            "match": "(\\{\\^?\\{for[ ])(.*?)(\\/?\\}\\})",
+            "captures": {
+                "1": {
+                    "name": "keyword.jsviews.left"
+                },
+                "2": {
+                    "name": "jsviews.for.expression",
+                    "patterns": [
+                        {
+                            "include": "source.js#expression"
+                        }
+                    ]
+                },
+                "3": {
+                    "name": "keyword.jsviews.right"
+                }
+            }
+        },
+        "jsviews-for-end": {
+            "name": "keyword.jsviews.for.end",
+            "match": "\\{\\^?\\{\\/for\\}\\}"
+        },
+        "jsviews-script": {
+            "name": "jsviews.script",
+            "begin": "(<)(script).*(type)(=)(\"text\\/x-jsrender\".*)(>)",
+            "beginCaptures": {
+                "1": {
+                    "name": "punctuation.definition.tag.begin.html"
+                },
+                "2": {
+                    "name": "entity.name.tag.html"
+                },
+                "3": {
+                    "name": "entity.other.attribute-name.html"
+                },
+                "4": {
+                    "name": "punctuation.separator.key-value.html"
+                },
+                "5": {
+                    "name": "string.quoted.double.html"
+                },
+                "6": {
+                    "name": "punctuation.definition.tag.end.html"
+                },
+                "7": {
+                    "name": "{{"
+                }
+            },
+            "end": "(\\<\\/script\\>)",
+            "endCaptures": {
+                "1": {
+                    "name": "entity.name.tag.html"
+                }
+            },
+            "patterns": [
+                {
+					"include": "text.html.derivative"
+				}
+            ]
+        }
+    }
+}
