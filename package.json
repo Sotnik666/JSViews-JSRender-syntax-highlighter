@@ -1,9 +1,11 @@
 {
     "name": "jsrender-jsviews",
     "description": "Simple JSViews JSRender syntax highlighter, that makes your templates more readable and colorful",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "AndreyMakarenko",
     "license": "MIT",
+    "categories": ["Programming Languages", "Snippets"],
+    "icon": "jsRenderIcon.png",
     "repository": {
         "type": "git",
         "url": "https://github.com/Sotnik666/JSViews-JSRender-syntax-highlighter"
