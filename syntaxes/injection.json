@@ -54,6 +54,9 @@
             "include": "#jsviews-for"
         },
         {
+            "include": "#jsviews-for-end"
+        },
+        {
             "include": "#jsviews-model"
         },
         {
@@ -247,7 +250,7 @@
         },
         "jsviews-customLabel-end": {
             "name": "keyword.jsviews.if.end",
-            "match": "\\{\\{\\/model\\}\\}"
+            "match": "\\{\\^?\\{\\/.*\\}\\}"
         },
         "jsviews-label": {
             "name": "jsviews.label",

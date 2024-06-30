@@ -1,7 +1,7 @@
 {
     "name": "jsrender-jsviews",
     "description": "Simple JSViews JSRender syntax highlighter, that makes your templates more readable and colorful",
-    "version": "0.0.4",
+    "version": "0.0.5",
     "publisher": "AndreyMakarenko",
     "license": "MIT",
     "categories": ["Programming Languages", "Snippets"],
@@ -25,28 +25,26 @@
                 "injectTo": [
                     "text.html.derivative"
                 ]
+            },
+            {
+                "path": "./syntaxes/injection.js",
+                "scopeName": "jsviews.injection",
+                "injectTo": [
+                    "text.html.derivative"
+                ]
             }
         ],
         "configuration": {
             "type": "object",
-            "title": "Example configuration",
+            "title": "Custom JSRender Labels",
             "properties": {
-                "languageServerExample.maxNumberOfProblems": {
-                    "scope": "resource",
-                    "type": "number",
-                    "default": 100,
-                    "description": "Controls the maximum number of problems produced by the server."
-                },
-                "languageServerExample.trace.server": {
-                    "scope": "window",
-                    "type": "string",
-                    "enum": [
-                        "off",
-                        "messages",
-                        "verbose"
-                    ],
-                    "default": "off",
-                    "description": "Traces the communication between VS Code and the language server."
+                "jsrender.customLabel": {
+                    "type": "array",
+                    "items": {
+                        "type": "string"
+                    },
+                    "default": [],
+                    "description": "Controls additional JSRender labels. (In dev)"
                 }
             }
         }
