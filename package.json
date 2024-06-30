@@ -25,13 +25,6 @@
                 "injectTo": [
                     "text.html.derivative"
                 ]
-            },
-            {
-                "path": "./syntaxes/injection.js",
-                "scopeName": "jsviews.injection",
-                "injectTo": [
-                    "text.html.derivative"
-                ]
             }
         ],
         "configuration": {
