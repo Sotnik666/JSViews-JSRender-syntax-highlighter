@@ -1,7 +1,7 @@
 {
     "name": "jsrender-jsviews",
     "description": "Simple JSViews JSRender syntax highlighter, that makes your templates more readable and colorful",
-    "version": "0.0.5",
+    "version": "0.0.7",
     "publisher": "AndreyMakarenko",
     "license": "MIT",
     "categories": ["Programming Languages", "Snippets"],
@@ -23,10 +23,67 @@
                 "path": "./syntaxes/injection.json",
                 "scopeName": "jsviews.injection",
                 "injectTo": [
-                    "text.html.derivative"
+                    "text.html.basic",
+                    "text.html.derivative",
+                    "text.html"
                 ]
             }
         ],
+        "configurationDefaults": {
+            "files.associations": {
+                "*.htm": "html",
+                "*.jsrender": "html"
+            },
+            "editor.tokenColorCustomizations": {
+                "textMateRules": [
+                    {
+                        "scope": [
+                            "entity.name.tag.jsviews",
+                            "keyword.control.tag.jsviews"
+                        ],
+                        "settings": {
+                            "foreground": "#FF8A3D",
+                            "fontStyle": "bold"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "punctuation.definition.tag.begin.jsviews",
+                            "punctuation.definition.tag.end.jsviews",
+                            "punctuation.definition.tag.closing.jsviews",
+                            "punctuation.definition.tag.self-closing.jsviews",
+                            "punctuation.section.embedded.begin.jsviews",
+                            "punctuation.section.embedded.end.jsviews",
+                            "keyword.operator.jsviews"
+                        ],
+                        "settings": {
+                            "foreground": "#E06C2B"
+                        }
+                    },
+                    {
+                        "scope": [
+                            "source.js.embedded.jsviews",
+                            "meta.embedded.expression.jsviews"
+                        ],
+                        "settings": {
+                            "foreground": "#DCDCAA"
+                        }
+                    },
+                    {
+                        "scope": "entity.other.attribute-name.jsviews",
+                        "settings": {
+                            "foreground": "#4FC1FF"
+                        }
+                    },
+                    {
+                        "scope": "punctuation.separator.key-value.jsviews",
+                        "settings": {
+                            "foreground": "#D4D4D4"
+                        }
+                    }
+                ]
+            }
+        },
         "configuration": {
             "type": "object",
             "title": "Custom JSRender Labels",
